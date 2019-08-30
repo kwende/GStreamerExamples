@@ -22,6 +22,7 @@ struct state {
 	int frameNumber;
 };
 
+#ifdef USEAPPSRC
 void needDataCallback(GstElement* appsrc, guint unused, void* context)
 {
 	GstBuffer* buffer;
@@ -65,6 +66,7 @@ void needDataCallback(GstElement* appsrc, guint unused, void* context)
 
 	gst_buffer_unref(buffer);
 }
+#endif
 
 gboolean busCallback(GstBus* bus, GstMessage* msg, gpointer myData)
 {
